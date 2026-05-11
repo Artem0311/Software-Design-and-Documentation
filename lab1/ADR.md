@@ -1,17 +1,17 @@
-# ADR 1: Using WebSocket for Real-Time Message Status Updates
+# ADR: Choosing WebSocket for Message Statuses
 
 ## Context
-In our system (Variant 2 - Message Status Tracking), we need to track and display message statuses (sent, delivered, read) in real-time. We must choose an optimal delivery mechanism to push these updates from the server to the clients so users can instantly see when their message is read.
+In Variant 2, we need to track message statuses (sent, delivered, read). The main problem is how to notify the sender's app that their message was read, without making the app constantly ask the server for updates.
 
 ## Decision
-We have decided to use **WebSocket** technology for our Delivery Mechanism instead of standard HTTP Polling (where the client repeatedly asks the server for updates every few seconds).
+I decided to use **WebSocket** instead of standard HTTP Polling. 
 
 ## Consequences
-**Positive (Pros):**
-* Instant, real-time delivery of status updates.
-* Significant reduction in load on the Backend API and Database, as clients no longer spam the server with empty HTTP requests.
-* Better battery life and lower data consumption for mobile users.
+**Pros:**
+* Statuses update instantly in real-time (like the two blue ticks in messengers).
+* No extra load on the server and database from constant empty HTTP requests.
+* Saves mobile data and phone battery.
 
-**Negative (Cons):**
-* Increased infrastructure complexity (need to maintain thousands of persistent open connections).
-* Requires additional logic on the client-side to handle connection drops and automatic reconnections.
+**Cons:**
+* The server has to keep many connections open at the same time.
+* The client app needs extra logic to automatically reconnect if the internet drops.
