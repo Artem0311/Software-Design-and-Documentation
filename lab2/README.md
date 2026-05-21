@@ -23,7 +23,7 @@ Based on the first lab, I implemented **Variant 2: Message Status Tracking**. Th
    dotnet run
    ```
 3. Open your browser and navigate to the Swagger interface to test the endpoints.
-The terminal will output the local port (e.g., http://localhost:<your-port>/swagger).
+The terminal will output the local port (e.g., http://localhost:{your-port}/swagger).
 
 ## 🧪 How to run tests
 To run the automated integration tests, execute the following command in the terminal:
