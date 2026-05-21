@@ -17,13 +17,11 @@ public class MessengerTests : IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public async Task SystemFlow_CreateUser_SendMessage_GetHistory()
     {
-        // 1. Создаем пользователя
         var userResponse = await _client.PostAsJsonAsync("/users", new { name = "TestUser" });
         userResponse.EnsureSuccessStatusCode();
         var user = await userResponse.Content.ReadFromJsonAsync<User>();
         Assert.NotNull(user);
 
-        // 2. Отправляем сообщение
         var msgResponse = await _client.PostAsJsonAsync("/messages", new 
         { 
             conversationId = "test-chat", 
@@ -32,12 +30,10 @@ public class MessengerTests : IClassFixture<WebApplicationFactory<Program>>
         });
         msgResponse.EnsureSuccessStatusCode();
 
-        // 3. Получаем историю
         var historyResponse = await _client.GetAsync("/conversations/test-chat/messages");
         historyResponse.EnsureSuccessStatusCode();
         var history = await historyResponse.Content.ReadFromJsonAsync<List<Message>>();
 
-        // 4. Проверяем статус (Твой вариант!)
         Assert.NotNull(history);
         Assert.Single(history);
         Assert.Equal("Integration test message", history[0].Text);
