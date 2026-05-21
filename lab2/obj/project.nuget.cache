@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "NreR7C6t5So=",
+  "success": true,
+  "projectFilePath": "/home/temandro/University/Semester_4/Software-Design-and-Documentation/lab2/lab2.csproj",
+  "expectedPackageFiles": [
+    "/home/temandro/.nuget/packages/microsoft.extensions.apidescription.server/10.0.0/microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
+    "/home/temandro/.nuget/packages/microsoft.openapi/2.4.1/microsoft.openapi.2.4.1.nupkg.sha512",
+    "/home/temandro/.nuget/packages/swashbuckle.aspnetcore/10.1.7/swashbuckle.aspnetcore.10.1.7.nupkg.sha512",
+    "/home/temandro/.nuget/packages/swashbuckle.aspnetcore.swagger/10.1.7/swashbuckle.aspnetcore.swagger.10.1.7.nupkg.sha512",
+    "/home/temandro/.nuget/packages/swashbuckle.aspnetcore.swaggergen/10.1.7/swashbuckle.aspnetcore.swaggergen.10.1.7.nupkg.sha512",
+    "/home/temandro/.nuget/packages/swashbuckle.aspnetcore.swaggerui/10.1.7/swashbuckle.aspnetcore.swaggerui.10.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}
