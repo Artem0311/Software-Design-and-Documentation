@@ -7,7 +7,6 @@ public static class Endpoints
 {
     public static void MapMessageEndpoints(this WebApplication app)
     {
-        // 1. Создание пользователя
         app.MapPost("/users", (User newUser, JsonStorage storage) =>
         {
             if (string.IsNullOrWhiteSpace(newUser.Name))
@@ -18,7 +17,6 @@ public static class Endpoints
             return Results.Created($"/users/{newUser.Id}", newUser);
         });
 
-        // 2. Отправка сообщения
         app.MapPost("/messages", (Message newMessage, JsonStorage storage) =>
         {
             if (string.IsNullOrWhiteSpace(newMessage.SenderId) || string.IsNullOrWhiteSpace(newMessage.Text))
@@ -32,7 +30,6 @@ public static class Endpoints
             return Results.Created($"/messages/{newMessage.MessageId}", newMessage);
         });
 
-        // 3. Получение истории переписки
         app.MapGet("/conversations/{conversationId}/messages", (string conversationId, JsonStorage storage) =>
         {
             var history = storage.Messages
@@ -43,7 +40,6 @@ public static class Endpoints
             return Results.Ok(history);
         });
 
-        // --- 4. ИЗМЕНЕНИЕ СТАТУСА (Твой Вариант 2 из Лабы 1) ---
         app.MapPatch("/messages/{id}/status", (string id, string newStatus, JsonStorage storage) =>
         {
             if (string.IsNullOrWhiteSpace(newStatus))
