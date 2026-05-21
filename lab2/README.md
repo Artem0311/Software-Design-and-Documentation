@@ -24,6 +24,6 @@ Based on the first lab, I implemented **Variant 2: Message Status Tracking**. Th
 ## How to run tests
 
 To run the automated integration tests, execute the following command in the terminal:
-
+```bash
 dotnet test tests
 ```
